@@ -1,29 +1,33 @@
 import React from 'react';
 import {useRouteMatch, useHistory} from 'react-router-dom'
+import Movie from './Movie';
 
 export default function MovieList(props) {
   const {movies} = props
 
   const {url} = useRouteMatch();
-  console.log(url)
 
   return (
     <div className="movie-list">
-      {props.movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+      {movies.map(movie => (
+        <MovieDetails key={movie.id} title = {movie.title} director = {movie.director} metascore = {movie.metascore} id = {movie.id}/>
       ))}
     </div>
   );
 }
 
 function MovieDetails(props) {
-  const { title, director, metascore } = props;
-
+  const { title, director, metascore, id } = props;
+  
   const history = useHistory();
 
   const routeToMovie = () =>{
-    history.push(`/movies/1`)
+    history.push(`/movies/${id}`)
   }
+
+  // const movie = movies.find(item =>{
+  //   return movie.id == movieID
+  // })
 
   return (
     <div className="movie-card" onClick = {() => routeToMovie()}>
@@ -37,3 +41,6 @@ function MovieDetails(props) {
     </div>
   );
 }
+
+
+

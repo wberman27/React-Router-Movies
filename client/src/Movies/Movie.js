@@ -5,8 +5,9 @@ import {useParams, useRouteMatch} from 'react-router-dom'
 export default function Movie(props) {
   const [movie, setMovie] = useState();
 
-
   const {url, path} = useRouteMatch;
+
+
 
   let id = 1;
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
@@ -18,7 +19,8 @@ export default function Movie(props) {
       .then(res => {
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
-        setMovie(res)
+        console.log(res.data)
+        setMovie(res.data)
       })
       .catch(error => {
         console.error(error);
