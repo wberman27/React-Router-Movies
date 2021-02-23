@@ -1,11 +1,9 @@
 import React from 'react';
-import {useRouteMatch, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import Movie from './Movie';
 
 export default function MovieList(props) {
   const {movies} = props
-
-  const {url} = useRouteMatch();
 
   return (
     <div className="movie-list">
@@ -18,7 +16,7 @@ export default function MovieList(props) {
 
 function MovieDetails(props) {
   const { title, director, metascore, id } = props;
-  
+
   const history = useHistory();
 
   const routeToMovie = () =>{
