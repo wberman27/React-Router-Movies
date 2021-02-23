@@ -41,7 +41,7 @@ export default function App () {
 
       <div>
         <Switch>
-          <Route path = '/movies/:movieID'><Movie movie = {movie}/></Route>
+          <Route path = '/movies/:movieID'><Movie /></Route>
           <Route path = '/'><MovieList movies = {movieList}/></Route>
         </Switch>
       </div>
