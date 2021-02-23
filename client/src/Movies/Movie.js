@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {useParams, useRouteMatch} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 export default function Movie(props) {
   const [movie, setMovie] = useState();
 
-  const {url, path} = useRouteMatch();
 
-  const {movieID} = useParams();
-  console.log(movieID)
-  console.log(path);
-  console.log(url);
-
+  const {movieID} = useParams(); 
+  //useParams will allow access to movieID param, THIS is our movie ID for url directory rendering
+  
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
-
+  // console.log(movieID)
+  // console.log(path);
+  // console.log(url);
 
   useEffect(() => {
     axios
@@ -38,7 +37,7 @@ export default function Movie(props) {
     return <div>Loading movie information...</div>;
   }
 
-  const { title, director, metascore, stars } = movie;
+  const { title, director, metascore, stars } = movie; //this will render movie info based on movieID url
 
   return (
     <div className="save-wrapper">

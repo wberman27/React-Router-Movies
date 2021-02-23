@@ -7,7 +7,7 @@ export default function MovieList(props) {
 
   return (
     <div className="movie-list">
-      {movies.map(movie => (
+      {movies.map(movie => ( //map each movie's details, give MovieDetails these props
         <MovieDetails key={movie.id} title = {movie.title} director = {movie.director} metascore = {movie.metascore} id = {movie.id}/>
       ))}
     </div>
@@ -17,15 +17,11 @@ export default function MovieList(props) {
 function MovieDetails(props) {
   const { title, director, metascore, id } = props;
 
-  const history = useHistory();
+  const history = useHistory(); //allows use of history
 
-  const routeToMovie = () =>{
+  const routeToMovie = () =>{ //function for onClick of div movie-card to push you to correct movie
     history.push(`/movies/${id}`)
   }
-
-  // const movie = movies.find(item =>{
-  //   return movie.id == movieID
-  // })
 
   return (
     <div className="movie-card" onClick = {() => routeToMovie()}>

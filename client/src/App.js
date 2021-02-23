@@ -29,13 +29,7 @@ export default function App () {
     // This is stretch. Prevent the same movie from being "saved" more than once
   };
 
-  const movieID = useParams();
-
-  const movie = movieList.find(movie =>{
-    return movie.id == movieID
-  })
-
-  return (
+  return ( //:movieID is setting a param for use in Movie component
     <div>
       <SavedList list={[ /* This is stretch */]} />
 
